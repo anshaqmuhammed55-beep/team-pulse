@@ -1,10 +1,12 @@
 // ============================================================
 // Repositories — Data Access Layer
 // ============================================================
-// Each repository encapsulates Prisma queries for a single
-// domain model. Repositories should NOT contain business logic.
-//
-// Example:
-//   export { OrganizationRepository } from "./organization.repository";
-//   export { EmployeeRepository } from "./employee.repository";
-// ============================================================
+
+export { ProjectRepository } from "./project.repository";
+export type { ProjectFilters } from "./project.repository";
+
+export { TaskRepository } from "./task.repository";
+export type { TaskFilters } from "./task.repository";
+
+export { DashboardRepository } from "./dashboard.repository";
+export type { DashboardStats } from "./dashboard.repository";
