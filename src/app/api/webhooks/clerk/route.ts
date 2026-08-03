@@ -86,6 +86,22 @@ export async function POST(req: Request) {
       }
     }
 
+    if (eventType === 'organization.created' || eventType === 'organization.updated') {
+      const { id, name } = evt.data;
+      await prisma.organization.upsert({
+        where: { id },
+        update: { name },
+        create: { id, name },
+      });
+    }
+
+    if (eventType === 'organization.deleted') {
+      const { id } = evt.data;
+      if (id) {
+        await prisma.organization.delete({ where: { id } });
+      }
+    }
+
     return new NextResponse('', { status: 200 });
   } catch (error) {
     console.error('Error in Clerk webhook:', error);
