@@ -1,5 +1,5 @@
 import "dotenv/config";
-import { prisma } from "./src/lib/prisma.ts";
+import { prisma } from "./src/lib/prisma";
 
 async function run() {
   console.log("Starting Clerk to Neon synchronization...");
